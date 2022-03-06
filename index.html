@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+    </head>
+    <body>
+        <h1>Simple messenger :)</h1>
+    <div id="firstUser">
+        <div id="message1"></div>
+        <input type="text" name="text" id="txt1">
+        <input type="button" value="Send" id="send1">
+    </div>
+    <div id="secondUser">
+        <div id="message2"></div>
+        <input type="text" name="text" id="txt2">
+        <input type="button" value="Send" id="send2">
+    </div>
+    </body>
+</html>
+<style>
+#firstUser {
+
+    width: 250px;
+
+    height: 400px;
+
+    background-color: magenta;
+
+    border: 1px solid black;
+
+}
+
+#secondUser {
+
+    width: 250px;
+
+    height: 400px;
+
+    background-color: magenta;
+
+    border: 1px solid black;
+
+    position: relative;
+
+    left: 260px;
+
+    bottom: 400px;
+
+}
+
+
+
+#txt1, #txt2, #send1, #send2 {
+
+    position: relative;
+
+    top: 100px;
+
+}
+
+#message1, #message2 {
+
+
+
+    width: 250px;
+
+    height: 300px;
+
+}
+</style>
+<script>
+window.onload = () => {
+
+
+
+const textFirstUser = document.getElementById('txt1');
+
+const txtSecondUser = document.getElementById('txt2');
+
+const firstBtnSend = document.getElementById('send1');
+
+const secondBtnSend = document.getElementById('send2');
+
+const message1 = document.getElementById('message1'),
+
+    message2 = document.getElementById('message2');
+
+
+
+
+
+const firstUser = {
+
+    name: 'User',
+
+    id: 1,
+
+}
+
+const secondUser =  {
+
+    name: 'User',
+
+    id: 2,
+
+}
+
+
+
+firstBtnSend.onclick = () => {
+
+    if(!textFirstUser.value){
+
+        textFirstUser.focus();
+
+    }else  {
+
+        let newMessageFor2 = document.createElement('p');
+
+        newMessageFor2.textContent = `${firstUser.name}${firstUser.id}: ${textFirstUser.value}`;
+
+        newMessageFor2.style.color = 'white';
+
+        newMessageFor2.style.backgroundColor = 'black';
+
+        message2.appendChild(newMessageFor2);
+
+        let newMessageFor1 = document.createElement('p');
+
+        newMessageFor1.textContent = `${firstUser.name}${firstUser.id}: ${textFirstUser.value}`;
+
+        message1.appendChild(newMessageFor1);
+
+    }
+
+    textFirstUser.value = '';
+
+}
+
+secondBtnSend.onclick = () => {
+
+    if(!txtSecondUser.value){
+
+        txtSecondUser.focus();
+
+    } else {
+
+        let newMessageFor1 = document.createElement('p'); 
+
+        newMessageFor1.textContent = `${secondUser.name}${secondUser.id}: ${txtSecondUser.value}`;
+
+        newMessageFor1.style.color = 'white';
+
+        newMessageFor1.style.backgroundColor = 'black';
+
+        message1.appendChild(newMessageFor1);
+
+        let newMessageFor2 = document.createElement('p');
+
+        newMessageFor2.textContent = `${secondUser.name}${secondUser.id}: ${txtSecondUser.value}`;
+
+        message2.appendChild(newMessageFor2);
+
+    }
+
+    txtSecondUser.value = '';
+
+}
+
+}
+</script>
